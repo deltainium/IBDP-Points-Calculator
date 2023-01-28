@@ -4,7 +4,7 @@ A quick and comprihensive way to calculate your IB Diploma points all in one pac
 
 ## **Warning**:
 I'm just a guy with a computer. Though I consider my program to work as intended, I may have entirely misunderstood the algorithm the IB uses to calculate their diploma scores.
-…### Linux
+### Linux
 Open a terminal instance and run:
 ```zsh
 git clone "https://github.com/deltainium/IBDP-Points-Calculator"
