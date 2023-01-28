@@ -1,9 +1,16 @@
+
 # **The Unofficial IB Diploma Program Points Calculator**
 
 A quick and comprihensive way to calculate your IB Diploma points all in one package.
 
 ## **Warning**:
 I'm just a guy with a computer. Though I consider my program to work as intended, I may have entirely misunderstood the algorithm the IB uses to calculate their diploma scores.
+**Please avoid using this project for anything remotely important** If you need your diploma score for university and whatnot your best bet would be to consult a teacher or counselor.
+
+## **Usage**
+Naturally for both Windows and Linux a semi-recent version of [Python](https://www.python.org/) is required.
+### Windows
+Download "calculator.py", navigate to wherever it's saved through your file explorer, and double click like any other program.
 ### Linux
 Open a terminal instance and run:
 ```zsh
