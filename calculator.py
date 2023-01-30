@@ -8,8 +8,12 @@ print()
 def blockgrade(BlockNum):
     grade = 0  
     while grade<1 or 7<grade:
-        grade = int(input(f"Block {BlockNum} grade: "))
-        if grade<1 or 7<grade:
+        try:
+            grade = int(input(f"Block {BlockNum} grade: "))
+            if grade<1 or 7<grade:
+                print("You have inputted an invalid grade. Please try a value from 1 to 7.")
+                print()
+        except ValueError:
             print("You have inputted an invalid grade. Please try a value from 1 to 7.")
             print()
     return grade
