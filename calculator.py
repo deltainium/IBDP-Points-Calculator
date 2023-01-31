@@ -18,35 +18,16 @@ def blockgrade(BlockNum):
             print()
     return grade
 
+# thedoor definition | A way to automate a user friendly way of exiting the program
 def thedoor():
     input("Press any key to exit")
     exit()
 
-#   Finalgrade definition | A function for the final greade is being defined for later use. All Block grades are summed up, then the ExtraGrade (derived from the CoreGrade) is added.
-#   The final score is then outputted, and the user is prompted to exit.
-def finalgrade():
-    BlockGrade = Nor + Eng + Soc + Sci + Mat + Che
-    FinalGrade = BlockGrade + int(ExtraGrade)
-    if FinalGrade < 24:
-        print()
-        print("Unfortunately your diploma score is bellow 24 points which is considered a failing condition.")
-        print("You are therefore not eligble to recieve a diploma score")
-        print("If you're still curious, your diploma score would have been: ",FinalGrade)
-        print()
-        thedoor()
-    else:
-        print()
-        print("----------")
-        print("Your IB Diploma Score is: ", FinalGrade)
-        print("----------")
-        print()
-        thedoor()
-
+# coreoopsie definition | Convenient automation of the error message displayed when an invalid grade is entered into core grades.
 def coreoopsie():
-    print("It appears you have entered an invalid grade for your core subjects. Please Try another value. Hint: Core subject grades usually range from A to E.")
+    print("You have entered an invalid grade. Please try a value from A to E.")
 
 #   Main subject definition | Grade variables are defined here through user inputs, and variable type is specified as an integer to avoid errors.
-#   Note to self: Add input check to ensure user isn't inputting a string or invalid grade, if check fails return a message to user
 Nor = blockgrade(1)
 Eng = blockgrade(2)
 Soc = blockgrade(3) 
@@ -68,30 +49,36 @@ while TOK not in AccValls:
 while EE not in AccValls: 
     EE = str(input("Extended Essay grade: "))
     if EE not in AccValls:
-        coreoopsie()
-#   The core grades are combined into a single string so as to easily compare it to the table bellow
-CoreCombo = (TOK + EE)
+        coreoopsie() 
+#   CoreMix | A nested dictionary which acts as a table. The first CoreGrade is used as a key to an embedded dictionary,
+#   which is then followed up with the second core grade used as a key. Both coregrades together result in an appropriate point score
+CoreMix = {
+        "A":{"A": 3,"B": 3,"C": 2,"D": 2,"E": 1,},
+        "B":{"A": 3,"B": 2,"C": 1,"D": 1,"E": 0,},
+        "C":{"A": 2,"B": 1,"C": 1,"D": 0,"E": 0,},
+        "D":{"A": 2,"B": 1,"C": 0,"D": 0,"E": 0,},
+        "E":{"A": 1,"B": 0,"C": 0,"D": 0,"E": -1,},
+        }
+CoreCombo = CoreMix[TOK][EE]
 
-#   Letter combinations are assigned a score variable which will later be converted into a point score
-ThreePointers = ["AA", "AB", "BA"]
-TwoPointers = ["CA", "DA", "AC", "AD", "BB"]
-OnePointers = ["DB", "CC", "BD"]
-ZeroPointer = ["DC", "DD", "CD"]
-Fail = ["EE"]
-
-#   Aforementioned combination variables will now be tested, and recieve a suitable score
-if CoreCombo in ThreePointers:
-    ExtraGrade = 3
-    finalgrade()
-elif CoreCombo in TwoPointers:
-    ExtraGrade = 2
-    finalgrade()
-elif CoreCombo in OnePointers:
-    ExtraGrade = 1
-    finalgrade()
-elif CoreCombo in ZeroPointer:
-    ExtraGrade = 0
-    finalgrade()
-elif CoreCombo in Fail:
+# Simple check to see if a condition for diploma failure has been met, otherwise the program continues
+if CoreCombo == -1:
     print("It appears you have failed one or multiple of your core subjects, unfortunately a diploma score cannot be awarded")
     thedoor()
+else:
+    FinalGrade = (Nor + Eng + Soc + Sci + Mat + Che) + CoreCombo
+    # Another check to see if a condition for diploma failure has been met
+    if FinalGrade < 24:
+        print()
+        print("Unfortunately your diploma score is bellow 24 points which is considered a failing condition.")
+        print("You are therefore not eligble to recieve a diploma score")
+        print("If you're still curious, your diploma score would have been: ",FinalGrade)
+        print()
+        thedoor()
+    else:
+        print()
+        print("----------")
+        print("Your IB Diploma Score is: ", FinalGrade)
+        print("----------")
+        print()
+        thedoor()
