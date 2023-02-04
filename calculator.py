@@ -51,7 +51,7 @@ while EE not in AccValls:
     if EE not in AccValls:
         coreoopsie() 
 #   CoreMix | A nested dictionary which acts as a table. The first CoreGrade is used as a key to an embedded dictionary,
-#   which is then followed up with the second core grade used as a key. Both coregrades together result in an appropriate point score
+#   which is then followed up by the second core grade used as a nested key. Both coregrades together result in an appropriate point score
 CoreMix = {
         "A":{"A": 3,"B": 3,"C": 2,"D": 2,"E": 1,},
         "B":{"A": 3,"B": 2,"C": 1,"D": 1,"E": 0,},

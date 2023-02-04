@@ -1,4 +1,3 @@
-
 # **The Unofficial IB Diploma Program Points Calculator**
 
 A quick and comprihensive way to calculate your IB Diploma points all in one package.
@@ -12,6 +11,10 @@ Naturally for both Windows and Linux a semi-recent version of [Python](https://w
 ### Windows
 Download "calculator.py", navigate to wherever it's saved through your file explorer, and double click like any other program.
 ### Linux
+#### Bin Install
+Download the [latest bin file](https://github.com/deltainium/IBDP-Points-Calculator/releases/) from the repository's releases, navigate to your install location in a terminal, and open the file with ```zsh ./IBDP-Points-Calculator```.
+If your terminal prints and error ensure the file has permission to be executed with ```zsh sudo chmod +x IBDP-Points-Calculator```
+#### Source code install
 Open a terminal instance and run:
 ```zsh
 git clone "https://github.com/deltainium/IBDP-Points-Calculator"
